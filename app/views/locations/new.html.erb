@@ -1,5 +1,17 @@
+<%= button_tag 'House', { :id => "house-button" } %>
+<%= button_tag 'Apartment', { :id => "apartment-button" }  %>
+<%= button_tag 'Buisness', { :id => "buisness-button" }  %>
+
+<%= form_tag("/locations", method: "post") do %>
+	<%= label_tag 'address' %>
+	<%= text_field_tag 'location[address]' %>
+	<%= label_tag 'apartment number', nil ,{ :id => "apartment-label"} %>
+	<%= text_field_tag 'location[apartment_number]' %>
+	<%= label_tag 'city' %>
+	<%= text_field_tag 'location[city]'	 %>
+	<%= label_tag 'location' %>
+	<%= select_tag 'location[state]', options_for_select(us_states) %> 
+	<%= button_tag 'Submit' %>
+<% end %>
 
 
-<%= render 'form' %>
-
-<p><%= link_to "Back to List", locations_path %></p>

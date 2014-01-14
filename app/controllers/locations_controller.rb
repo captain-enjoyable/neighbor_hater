@@ -12,7 +12,7 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(params[:location])
+    @location = Location.new(AddressNormalizer.run(params))
     if @location.save
       redirect_to @location, :notice => "Successfully created location."
     else
