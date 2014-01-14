@@ -2,7 +2,7 @@
 # Normalizes address data that comes from the view to make it a usable
 # for the geocoder
 
-class AddressNormalizer
+class Address
 	
 	def self.run(param)
 		self.new(param).normalize_address
@@ -19,12 +19,12 @@ class AddressNormalizer
 			", Apartment " + @params_hash['location']['apartment_number'] + 
 			", " + @params_hash['location']['city'] + 
 			" " + @params_hash['location']['state']
-			return {:address => normalized_address}
+			return {address: normalized_address}
 		else
 		 	normalized_address = @params_hash['location']['address'] + 
 			", " + @params_hash['location']['city'] + 
 			" " + @params_hash['location']['state']
-			return {:address => normalized_address}
+			return {address: normalized_address}
 		end
 	end
 

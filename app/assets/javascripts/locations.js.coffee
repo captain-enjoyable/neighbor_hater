@@ -2,6 +2,8 @@ thang = () ->
 	alert("hello");
 	return
 
-$('#house-button').on('click', ->
-	console.log("work")
-)
+$(function(){
+	$('#house-button').on('click', ->
+		console.log("work")
+	)	
+})

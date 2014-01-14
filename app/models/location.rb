@@ -3,5 +3,5 @@ class Location < ActiveRecord::Base
   # validates :latitude, presence: :true
   # validates :latitude, uniqueness: { scope: :longitude, message: "every lattitude is allowed only one longitude" }
   geocoded_by :address
-  after_validation :geocode
+  before_validation :geocode
 end
