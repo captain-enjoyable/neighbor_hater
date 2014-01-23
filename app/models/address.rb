@@ -10,7 +10,7 @@ class Address
 	end
 
 	def self.normalize(params)
-		self.new(params['location']).geocoder_compliant_address
+		self.new(params['location']).create_location_data
 	end
 
 	def apartment?
@@ -31,5 +31,27 @@ class Address
 
 	def geocoder_compliant_address
 		[address_and_apartment, city_and_state].join(", ")
+	end
+
+	def geocode
+		GeocodingService.run(geocoder_compliant_address)
+	end
+
+	def create_location_data
+		location_data = LocationData.new()
+		coder_data = self.geocode
+		location_data.address = coder_data['normalized_address']
+		location_data.latitude = coder_data['lat_long']['lat']
+		location_data.longitude = coder_data['lat_long']['lng']
+		if apartment? 
+			location_data.apartment_number = params['apartment_number'].to_s.upcase
+		else
+			location_data.apartment_number = ""
+		end
+		location_data
+	end
+
+	def check_uniqueness 
+
 	end
 end

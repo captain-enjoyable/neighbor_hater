@@ -13,7 +13,6 @@ describe GeocodingService do
 			GeocodingService.run('539 University Ave, Missoula MT')['normalized_address'].should == "539 University Avenue, Missoula, MT 59801, USA"
 		end
 	end
-
 end
 
 

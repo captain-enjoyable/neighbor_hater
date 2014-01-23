@@ -1,7 +1,14 @@
-<%= button_tag 'House', { :id => "house-button" } %>
-<%= button_tag 'Apartment', { :id => "apartment-button" }  %>
-<%= button_tag 'Buisness', { :id => "buisness-button" }  %>
-
+<div class="row">
+	<div class="col-md-4">
+		<%= button_tag 'House', { :id => "house-button" } %>
+	</div>
+	<div class="col-md-4">
+		<%= button_tag 'Apartment', { :id => "apartment-button" }  %>
+	</div>
+	<div class="col-md-4">
+		<%= button_tag 'Buisness', { :id => "buisness-button" }  %>
+	</div>
+</div>
 <%= form_tag("/locations", method: "post") do %>
 	<%= label_tag 'address' %>
 	<%= text_field_tag 'location[address]' %>

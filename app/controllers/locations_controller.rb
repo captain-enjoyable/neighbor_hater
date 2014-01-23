@@ -12,11 +12,17 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(AddressNormalizer.run(params))
-    if @location.save
-      redirect_to @location, :notice => "Successfully created location."
+    param = Address.normalize(params).as_params_hash
+    if LocationUniquenessValidator.new(param).unique?
+      @location = Location.new(param)
+      if @location.save
+        redirect_to @location, :notice => "Successfully created location."
+      else
+        render :action => 'new'
+      end
     else
-      render :action => 'new'
+      location = Location.where(param).take
+      redirect_to "/locations/#{location.id}"
     end
   end
 
