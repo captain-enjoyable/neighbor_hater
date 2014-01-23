@@ -1,9 +1,6 @@
 form {
 	display: none;
 }
-#location_apartment_number	{
-	display: none; 
-}
-#apartment-label	{
-	display: none;
+label {
+  text-transform: capitalize;
 }

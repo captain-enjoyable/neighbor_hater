@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-4">
+		<%= button_tag 'House', { :id => "house-button" } %>
+	</div>
+	<div class="col-md-4">
+		<%= button_tag 'Apartment', { :id => "apartment-button" }  %>
+	</div>
+	<div class="col-md-4">
+		<%= button_tag 'Business', { :id => "business-button" }  %>
+	</div>
+</div>
+
+<% if @address.errors.any? %>
+	<h1>Error</h1>
+<% end %>
+
+<%= form_for @address do |f| %>
+	<%= f.hidden_field :type, id: "address-type" %>
+
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+
+	<%= f.label :apartment_number, id: "apartment-number-label", for: "apartment-number-input" %>
+	<%= f.text_field :apartment_number, id: "apartment-number-input" %>
+
+	<%= f.label :city %>
+	<%= f.text_field :city %>
+
+	<%= f.label :state %>
+	<%= f.select :state, options_for_select(us_states) %>
+
+	<%= f.submit 'Submit' %>-
+<% end %>

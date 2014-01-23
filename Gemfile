@@ -26,7 +26,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-####### 
+#######
 gem 'nifty-generators'
 gem 'geocoder'
 gem 'protected_attributes'
@@ -41,6 +41,7 @@ group :test do
   gem 'ZenTest'
   gem 'autotest-rails'
   gem 'capybara'
+  gem 'launchy'
 end
 
 # Use ActiveModel has_secure_password
