@@ -1,0 +1,31 @@
+@import "variables";
+
+.chosen-container .chosen-single, .chosen-container-active.chosen-with-drop .chosen-single {
+  background: none;
+  border: 1px solid $inputBorder;
+  box-shadow: none;
+  padding: 1.2em 1em;
+
+  span {
+    color: $inputBorder;
+    margin-top: -0.81em;
+  }
+}
+.chosen-container .chosen-drop {
+  border: none;
+  box-shadow: none;
+  border: 1px solid $inputBorder;
+  border-top: none;
+  background: rgba(0,0,0,0.5);
+}
+.chosen-container-single .chosen-search input[type="text"] {
+  border: 1px solid $inputBorder;
+}
+
+.chosen-container-single .chosen-single div {
+  top: 0.4em;
+}
+
+.chosen-single span {
+  color: white;
+}

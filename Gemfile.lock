@@ -40,6 +40,11 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    chosen-rails (1.0.2)
+      coffee-rails (>= 3.2)
+      compass-rails (>= 1.1.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     chunky_png (1.2.9)
     cliver (0.3.2)
     coffee-rails (4.0.1)
@@ -164,6 +169,7 @@ DEPENDENCIES
   autotest-rails
   bootstrap-sass (~> 3.0.3.0)
   capybara
+  chosen-rails
   coffee-rails (~> 4.0.0)
   geocoder
   jbuilder (~> 1.2)
