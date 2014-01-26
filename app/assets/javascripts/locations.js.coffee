@@ -1,20 +1,27 @@
-$(->
-	$('#house-button').on('click', ->
-		$('form').show()
-		$("#address-type").val("house")
-		$('#apartment-number-input').hide()
-		$('#apartment-number-label').hide()
-	)
-	$('#apartment-button').on('click', ->
-		$('form').show()
-		$("#address-type").val("apartment")
-		$('#apartment-number-input').show()
-		$('#apartment-number-label').show()
-	)
-	$('#business-button').on('click', ->
-		$('form').show()
-		$("#address-type").val("business")
-		$('#apartment-number-input').hide()
-		$('#apartment-number-label').hide()
-	)
-)
+$ ->
+  apartmentFields = $(".address_apartment_number")
+  typeInput       = $("#address-type")
+  typeLinks       = $(".address-type-link")
+
+  type = ->
+    typeInput.val()
+
+  displayTypeFields = ->
+    if type() is "apartment"
+      apartmentFields.show()
+    else
+      apartmentFields.hide()
+
+    typeLinks.removeClass("active")
+      .siblings("[data-type='#{type()}']")
+      .addClass('active')
+
+  typeLinks.click (event) ->
+    event.preventDefault()
+    typeInput.val $(this).data("type")
+    displayTypeFields()
+
+  displayTypeFields()
+
+  unless type()
+    typeLinks.siblings("[data-type='house']").click()

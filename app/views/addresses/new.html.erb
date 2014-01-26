@@ -1,33 +1,38 @@
-<div class="row">
-	<div class="col-md-4">
-		<%= button_tag 'House', { :id => "house-button" } %>
-	</div>
-	<div class="col-md-4">
-		<%= button_tag 'Apartment', { :id => "apartment-button" }  %>
-	</div>
-	<div class="col-md-4">
-		<%= button_tag 'Business', { :id => "business-button" }  %>
-	</div>
+<h1 id="logo">
+  <span>Neighbor</span>
+  <span>Hater</span>
+</h1>
+
+<div class="address-collection row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= simple_form_for @address do |f| %>
+
+      <% if @address.errors[:base].any? %>
+        <ul>
+          <% @address.errors[:base].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <div class="type-links">
+        <%= link_to 'House', "#", class: "address-type-link", data: {type: "house"} %>
+        <%= link_to 'Apartment', "#", class: "address-type-link", data: {type: "apartment"}  %>
+        <%= link_to 'Business', "#", class: "address-type-link", data: {type: "business"}  %>
+      </div>
+
+      <%= f.hidden_field :type, id: "address-type" %>
+
+      <%= f.input :address, placeholder: "Address" %>
+
+      <%= f.input :apartment_number, placeholder: "Apartment Number", required: true %>
+
+      <%= f.input :city, placeholder: "City", wrapper_html: {class: "col-xs-8"} %>
+
+      <%= f.input :state, collection: us_states, include_blank: "Select State", wrapper_html: {class: "col-xs-4"} %>
+
+      <%= f.submit 'Hate Thy Neighbor', class: "btn" %>
+    <% end %>
+  </div>
 </div>
 
-<% if @address.errors.any? %>
-	<h1>Error</h1>
-<% end %>
-
-<%= form_for @address do |f| %>
-	<%= f.hidden_field :type, id: "address-type" %>
-
-	<%= f.label :address %>
-	<%= f.text_field :address %>
-
-	<%= f.label :apartment_number, id: "apartment-number-label", for: "apartment-number-input" %>
-	<%= f.text_field :apartment_number, id: "apartment-number-input" %>
-
-	<%= f.label :city %>
-	<%= f.text_field :city %>
-
-	<%= f.label :state %>
-	<%= f.select :state, options_for_select(us_states) %>
-
-	<%= f.submit 'Submit' %>-
-<% end %>
