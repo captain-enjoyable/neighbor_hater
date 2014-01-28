@@ -13,7 +13,7 @@ feature "Finding address and Commenting on them" do
     fill_in "City", with: "Missoula"
     select "Montana", from: "State"
     click_button "Hate Thy Neighbor"
-    page.should have_content "Ready to talk trash:"
+    page.should have_content "Ready to talk trash"
   end
 
   scenario "Searching for an apartment that exists", js: true do
@@ -23,7 +23,7 @@ feature "Finding address and Commenting on them" do
     fill_in "City", with: "Boulder"
     select "Colorado", from: "State"
     click_button "Hate Thy Neighbor"
-    page.should have_content "Ready to talk trash:"
+    page.should have_content "Ready to talk trash"
   end
 
   scenario "Searching for a business that exists", js: true do
@@ -32,7 +32,7 @@ feature "Finding address and Commenting on them" do
     fill_in "City", with: "Missoula"
     select "Montana", from: "State"
     click_button "Hate Thy Neighbor"
-    page.should have_content "Ready to talk trash:"
+    page.should have_content "Ready to talk trash"
   end
 
   scenario "Searching for an Address that doesn't exists", js: true do

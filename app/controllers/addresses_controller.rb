@@ -1,13 +1,4 @@
 class AddressesController < ApplicationController
-  def index
-    @locations = Location.all
-  end
-
-  def show
-    @location = Location.find(params[:id])
-    @comment = Comment.new
-  end
-
   def new
     @address = Address.new
   end
@@ -16,7 +7,7 @@ class AddressesController < ApplicationController
     @address = Address.new(params[:address])
 
     if @address.valid?
-      redirect_to address_url(@address.to_canonical)
+      redirect_to @address.to_canonical
     else
       render :new
     end
