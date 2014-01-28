@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to @location, notice: "Comment created"
     else
-      render :new
+      render "locations/show"
     end
   end
 
