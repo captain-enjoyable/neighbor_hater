@@ -11,13 +11,19 @@ class CommentsController < ApplicationController
   end
 
   def create
-  	raise params.inspect
-    @address = Address.new(params[:address])
+    @location = Location.find(params[:address_id])
+    @comment = @location.comments.new(comment_attributes)
 
-    if @address.valid?
-      redirect_to address_url(@address.to_canonical)
+    if @comment.save
+      redirect_to address_url(@location), notice: "Comment created"
     else
       render :new
     end
+  end
+
+  private
+
+  def comment_attributes
+    params.require(:comment).permit(:body, :headline)
   end
 end

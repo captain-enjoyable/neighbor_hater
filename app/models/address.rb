@@ -53,11 +53,11 @@ class Address
 	def to_canonical
 		params = create_location_data.as_params_hash
 
-    if LocationUniquenessValidator.new(params).unique?
-      Location.create(params)
-    else
-      Location.where(params).take
-    end
+	    if LocationUniquenessValidator.new(params).unique?
+	      Location.create(params)
+	    else
+	      Location.where(params).take
+	    end
 	end
 
 	def geocoder_compliant_address

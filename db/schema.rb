@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20140127231312) do
 
   create_table "comments", force: true do |t|
+    t.integer  "location_id"
     t.string   "headline"
     t.string   "body"
     t.datetime "created_at"
@@ -27,13 +28,6 @@ ActiveRecord::Schema.define(version: 20140127231312) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "apartment_number"
-  end
-
-  create_table "neighbors", force: true do |t|
-    t.string   "address"
-    t.integer  "rating"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
 end

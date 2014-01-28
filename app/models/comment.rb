@@ -1,4 +1,4 @@
 class Comment < ActiveRecord::Base
-	belongs_to :customer
-	
+	attr_accessible :headline, :body
+	belongs_to :location
 end
