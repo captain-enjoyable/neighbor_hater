@@ -1,155 +1,30 @@
-@import "bootstrap/mixins";
-@import "bootstrap/variables";
-@import "bootstrap/normalize";
-@import "bootstrap/theme";
-@import "bootstrap/grid";
-@import "bootstrap/forms";
-@import "bootstrap/buttons";
 @import "variables";
+@import "bootstrap/grid";
 
-body {
-  background: $background;
-  color: white;
+.address-collection form {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid $border;
+  border-radius: 10px;
+  padding: 2em;
+  box-shadow: 0 0 4em $border;
+  .address_city {
+    padding-left: 0;
+  }
+  .address_state {
+    padding: 0;
+  }
 }
-
-
-.logo {
-  text-transform: uppercase;
-  font-weight: bold;
+.type-links {
+  margin-bottom: 2em;
   text-align: center;
-  margin: 2em 0;
-  span {
-    margin-left: -2px;
-    display: inline;
-    font-size: 5.2em;
-    letter-spacing: -0.12em;
-  }
-  span:last-child {
-    color: $background;
-    text-shadow:
-       -1px -1px 0 white,
-        1px -1px 0 white,
-        -1px 1px 0 white,
-         1px 1px 0 white;
-  }
-}
-
-form {
-  textarea {
-    display: block;
-    width: 100%;
-    height: 150px;
-    background: none;
+  a {
     color: white;
-  }
-  textarea , select, .chosen-container {
-    width: 100%;
-  }
-  textarea {
-    border: 1px solid $inputBorder;
-    border-radius: 3px;
     padding: 0.5em;
-    &:focus {
-      outline: none;
-      box-shadow: none;
-      border: 1px solid #EEE;
+    margin: 0 1em;
+    text-decoration: none;
+    &.active {
+      border-radius: 3px;
+      border: 1px solid white;
     }
   }
-  textarea[type="submit"] {
-    color: white;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.4);
-    &:hover {
-      color: $border;
-    }
-  }
-  .textarea  {
-    margin-bottom: 2em;
-    &.field_with_errors {
-      textarea , .chosen-single {
-        border: 1px solid rgba(255,0,0,0.7);
-        background: rgba(255,0,0,0.05);
-      }
-      .error {
-        display: none;
-      }
-    }
-  }
-
-  input {
-    display: block;
-    width: 100%;
-    background: none;
-    color: white;
-  }
-  select {
-    background: rgba(255,255,255,0.5);
-  }
-  input, select, .chosen-container {
-    width: 100%;
-  }
-  input[type="text"] {
-    border: 1px solid $inputBorder;
-    border-radius: 3px;
-    padding: 0.5em;
-    &:focus {
-      outline: none;
-      box-shadow: none;
-      border: 1px solid #EEE;
-    }
-  }
-  input[type="submit"] {
-    color: white;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.4);
-    &:hover {
-      color: $border;
-    }
-  }
-  .input {
-    margin-bottom: 2em;
-    &.field_with_errors {
-      input, .chosen-single {
-        border: 1px solid rgba(255,0,0,0.7);
-        background: rgba(255,0,0,0.05);
-      }
-      .error {
-        display: none;
-      }
-    }
-  }
-
-  .address-collection & {
-    background: rgba(0,0,0,0.5);
-    border: 1px solid $border;
-    border-radius: 10px;
-    padding: 2em;
-    box-shadow: 0 0 4em $border;
-    .address_city {
-      padding-left: 0;
-    }
-    .address_state {
-      padding: 0;
-    }
-  }
-  .type-links {
-    margin-bottom: 2em;
-    text-align: center;
-    a {
-      color: white;
-      padding: 0.5em;
-      margin: 0 1em;
-      text-decoration: none;
-      &.active {
-        background: $accent;
-        border-radius: 3px;
-        border: 1px solid lighten($accent, 25%);
-      }
-    }
-  }
-}
-
-
-label {
-  text-transform: capitalize;
 }

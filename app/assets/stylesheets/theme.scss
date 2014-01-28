@@ -1,0 +1,46 @@
+@import "variables";
+@import "bootstrap/normalize";
+@import "bootstrap/theme";
+@import "bootstrap/buttons";
+
+body {
+  background: $background;
+  color: white;
+}
+
+.logo, .mini-logo {
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 2em 0;
+  span:last-child {
+    color: $background;
+    text-shadow:
+       -1px -1px 0 white,
+        1px -1px 0 white,
+        -1px 1px 0 white,
+         1px 1px 0 white;
+  }
+}
+
+.mini-logo {
+  color: white;
+  &:hover {
+    text-decoration: none;
+    color: #713806;
+  }
+  margin: 0;
+  span {
+    margin-left: -2px;
+    font-size: 3em;
+    letter-spacing: -0.12em;
+  }
+}
+
+.logo {
+  text-align: center;
+  span {
+    margin-left: -2px;
+    font-size: 5.2em;
+    letter-spacing: -0.12em;
+  }
+}

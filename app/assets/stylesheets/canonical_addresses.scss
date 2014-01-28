@@ -1,0 +1,56 @@
+@import "variables";
+
+body.locations.show, body.comments {
+  padding: 2em;
+  .address-detail {
+    text-transform: uppercase;
+  }
+  h1 {
+    text-transform: uppercase;
+  }
+  h2 {
+    text-align: center;
+    background: white;
+    color: $background;
+    font-size: 3em;
+  }
+
+  .comments {
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+  }
+
+  .taunt {
+    margin: 1em 0;
+    span {
+      display: block;
+    }
+  }
+  &:last-child {
+    margin-bottom: 2em;
+  }
+
+  .timestamp {
+    display: block;
+  }
+
+  $placeholder: rgba(255, 255, 255, 0.8);
+
+  input[type="text"], textarea {
+    border: 1px solid white;
+  }
+  ::-webkit-input-placeholder {
+    color: $placeholder;
+  }
+  :-moz-placeholder {
+    color: $placeholder;
+  }
+  ::-moz-placeholder {
+    color: $placeholder;
+  }
+  :-ms-input-placeholder {
+    color: $placeholder;
+  }
+}
