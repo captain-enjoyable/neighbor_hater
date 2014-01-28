@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140127231312) do
   create_table "comments", force: true do |t|
     t.integer  "location_id"
     t.string   "headline"
-    t.string   "body"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
