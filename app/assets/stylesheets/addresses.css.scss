@@ -12,7 +12,8 @@ body {
   color: white;
 }
 
-#logo {
+
+.logo {
   text-transform: uppercase;
   font-weight: bold;
   text-align: center;
@@ -32,7 +33,49 @@ body {
          1px 1px 0 white;
   }
 }
+
 form {
+  textarea {
+    display: block;
+    width: 100%;
+    height: 150px;
+    background: none;
+    color: white;
+  }
+  textarea , select, .chosen-container {
+    width: 100%;
+  }
+  textarea {
+    border: 1px solid $inputBorder;
+    border-radius: 3px;
+    padding: 0.5em;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      border: 1px solid #EEE;
+    }
+  }
+  textarea[type="submit"] {
+    color: white;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.4);
+    &:hover {
+      color: $border;
+    }
+  }
+  .textarea  {
+    margin-bottom: 2em;
+    &.field_with_errors {
+      textarea , .chosen-single {
+        border: 1px solid rgba(255,0,0,0.7);
+        background: rgba(255,0,0,0.05);
+      }
+      .error {
+        display: none;
+      }
+    }
+  }
+
   input {
     display: block;
     width: 100%;
@@ -105,6 +148,7 @@ form {
     }
   }
 }
+
 
 label {
   text-transform: capitalize;

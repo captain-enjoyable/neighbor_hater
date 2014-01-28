@@ -1,11 +1,9 @@
-class AddressesController < ApplicationController
+class CommentsController < ApplicationController
   def index
-    @locations = Location.all
+    @comments = Comments.all
   end
 
   def show
-    @location = Location.find(params[:id])
-    @comment = Comment.new
   end
 
   def new
@@ -13,6 +11,7 @@ class AddressesController < ApplicationController
   end
 
   def create
+  	raise params.inspect
     @address = Address.new(params[:address])
 
     if @address.valid?

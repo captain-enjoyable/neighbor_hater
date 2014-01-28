@@ -1,6 +1,37 @@
-Ready to talk trash:
-<p>
-  <strong>Address:</strong>
-  <%= @location.address %>
-  <%= "Apartment " + @location.apartment_number if @location.apartment_number.present? %>
-</p>
+<h1 class="logo">
+  <span>Neighbor</span>
+  <span>Hater</span>
+</h1>
+
+<div class="address-collection row">
+	<div class="col-md-4 col-md-offset-2">
+		<p>
+			Ready to talk trash:
+		  <strong>Address:</strong>
+		  <%= @location.address %>
+    <%= simple_form_for @comment do |f| %>
+
+      <% if @comment.errors[:base].any? %>
+        <ul>
+          <% @comment.errors[:base].each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      <% end %>
+
+      <%= f.hidden_field :location_id, :value => @location.id %>
+
+      <%= f.input :headline, placeholder: "Headline" %>
+
+      <%= f.input :body, placeholder: "Comment", required: true,  wrapper_html: {class: "comment-input"}, :as => :text %>
+
+      <%= f.submit 'Submit', class: "btn" %>
+    <% end %>
+		</p>
+	</div>
+	<div class="col-md-4 comment-view">
+		<h1>
+			<p class="text-center">Hate</p>
+		</h1>
+	</div>
+</div>
